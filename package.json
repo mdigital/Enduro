@@ -101,7 +101,7 @@
   },
   "resolutions": {
     "graceful-fs": "^4.2.10",
-    "vinyl-fs/**/graceful-fs": "^4.2.10"
+    "gulp/**/graceful-fs": "^4.2.10"
   },
   "directories": {},
   "dist": {
