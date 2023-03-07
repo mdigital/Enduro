@@ -100,7 +100,8 @@
     "mocha-lcov-reporter": "^1.2.0"
   },
   "resolutions": {
-    "graceful-fs": "^4.2.10"
+    "graceful-fs": "^4.2.10",
+    "vinyl-fs/**/graceful-fs": "^4.2.10"
   },
   "directories": {},
   "dist": {
