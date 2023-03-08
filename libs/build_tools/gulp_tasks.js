@@ -48,7 +48,7 @@ gulp.task('browser_sync_norefresh', function () {
 	browsersync_start(true)
 })
 
-gulp.task('browser_sync_stop', [], function () {
+gulp.task('browser_sync_stop', function () {
 	return browser_sync.exit()
 })
 
