@@ -225,20 +225,20 @@ gulp.task('hbs_helpers', function () {
 // * 	Preproduction Task
 // *	Tasks that need to be done before doing the enduro render
 // * ———————————————————————————————————————————————————————— * //
-gulp.task('preproduction', ['iconfont', 'png_sprites', pagelist_generator])
+gulp.task('preproduction', gulp.parallel('iconfont', 'png_sprites', pagelist_generator))
 
 // * ———————————————————————————————————————————————————————— * //
 // * 	Production Task
 // *	No browser_sync, no watching for anything
 // * ———————————————————————————————————————————————————————— * //
-gulp.task('production', [js_handler, css_handler, 'hbs_templates', assets_copier, 'hbs_helpers'])
+gulp.task('production', gulp.parallel(js_handler, css_handler, 'hbs_templates', assets_copier, 'hbs_helpers'))
 
 // * ———————————————————————————————————————————————————————— * //
 // * 	Default Task
 // * ———————————————————————————————————————————————————————— * //
-// gulp.task('default', ['hbs_templates', 'sass', 'js', 'img', 'vendor', 'fonts', 'hbs_helpers', 'browser_sync'])
-gulp.task('default', [assets_copier_watch, 'browser_sync'])
-gulp.task('default_norefresh', [assets_copier_watch, 'browser_sync_norefresh'])
+// gulp.task('default', gulp.parallel('hbs_templates', 'sass', 'js', 'img', 'vendor', 'fonts', 'hbs_helpers', 'browser_sync'))
+gulp.task('default', gulp.parallel(assets_copier_watch, 'browser_sync'))
+gulp.task('default_norefresh', gulp.parallel(assets_copier_watch, 'browser_sync_norefresh'))
 
 gulp.start_promised = function (task_name) {
 	return new Promise(function (resolve, reject) {
